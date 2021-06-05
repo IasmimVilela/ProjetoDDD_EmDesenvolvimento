@@ -65,9 +65,9 @@
     <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjatoDDD.Domain\ProjatoDDD.Domain.csproj">
+    <ProjectReference Include="..\ProjatoDDD.Domain\ProjetoDDD.Domain.csproj">
       <Project>{626d4cf8-caea-47f4-b365-2ded26141a80}</Project>
-      <Name>ProjatoDDD.Domain</Name>
+      <Name>ProjetoDDD.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

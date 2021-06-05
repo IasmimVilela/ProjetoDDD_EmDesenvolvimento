@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - CrossCuttiong", "4.1 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDDD.MVC", "ProjetoDDD.MVC\ProjetoDDD.MVC.csproj", "{0C1C91B8-B275-4725-A4AD-E11383EF74E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjatoDDD.Domain", "ProjatoDDD.Domain\ProjatoDDD.Domain.csproj", "{626D4CF8-CAEA-47F4-B365-2DED26141A80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDDD.Domain", "ProjatoDDD.Domain\ProjetoDDD.Domain.csproj", "{626D4CF8-CAEA-47F4-B365-2DED26141A80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDDD.Infra.Data", "ProjetoDDD.Infra.Data\ProjetoDDD.Infra.Data.csproj", "{07E64020-EA6F-4163-A94F-6EA7B2EED565}"
 EndProject
