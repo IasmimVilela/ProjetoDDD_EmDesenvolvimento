@@ -8,18 +8,14 @@ using System.Web;
 
 namespace ProjetoDDD.MVC.AutoMapper
 {
+
     public class ViewModelToDomainMappingProfile : Profile
     {
-        public override string ProfileName
+        public ViewModelToDomainMappingProfile()
         {
-            get { return "ViewModelToDomainMappings"; }
-        }
 
-        public override void Configure()
-        {
-            Mapper.CreateMap<Cliente, ClienteViewModel>();
-            Mapper.CreateMap<Produto, ProdutoViewModel>();
+            CreateMap<Cliente, ClienteViewModel>();
+            CreateMap<Produto, ProdutoViewModel>();
         }
     }
-
 }

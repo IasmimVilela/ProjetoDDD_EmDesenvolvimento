@@ -1,20 +1,16 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ProjetoDDD.MVC.AutoMapper
 {
     public class AutoMapperConfig
     {
-        public static void RegisterMappings() 
+        public static MapperConfiguration RegisterMappings()
         {
-            Mapper.Initialize(x =>
+            return new MapperConfiguration(ps =>
             {
-                x.AddProfile<DomainToViewModelMappingProfile>();
-                x.AddProfile<ViewModelToDomainMappingProfile>();
+                ps.AddProfile(new ViewModelToDomainMappingProfile());
+                ps.AddProfile(new DomainToViewModelMappingProfile());
             });
-        }
+        }        
     }
 }
