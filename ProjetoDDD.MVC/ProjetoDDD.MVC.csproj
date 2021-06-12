@@ -223,9 +223,9 @@
       <Project>{626d4cf8-caea-47f4-b365-2ded26141a80}</Project>
       <Name>ProjetoDDD.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProjetoDDD.Infra.Data\ProjetoDDD.Infra.Data.csproj">
-      <Project>{07e64020-ea6f-4163-a94f-6ea7b2eed565}</Project>
-      <Name>ProjetoDDD.Infra.Data</Name>
+    <ProjectReference Include="..\ProjetoDDD.Application\ProjetoDDD.Application.csproj">
+      <Project>{3af21feb-f8be-437d-8f50-02fba0f8a478}</Project>
+      <Name>ProjetoDDD.Application</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
