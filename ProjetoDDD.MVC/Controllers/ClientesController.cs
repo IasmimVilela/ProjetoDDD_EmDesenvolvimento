@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
 using ProjatoDDD.Domain.Entities;
-using ProjatoDDD.Domain.Interfaces;
 using ProjetoDDD.Application.Interface;
 using ProjetoDDD.MVC.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ProjetoDDD.MVC.Controllers
@@ -22,11 +18,6 @@ namespace ProjetoDDD.MVC.Controllers
             _clienteApp = clienteApp;
             this.Mapper = Mapper;
         }
-        public ClientesController()
-        {
-            //this.Mapper = Mapper;
-        }
-
 
         // GET: Clientes
         public ActionResult Index()
@@ -43,17 +34,26 @@ namespace ProjetoDDD.MVC.Controllers
 
         // GET: Clientes/Details/5
         public ActionResult Details(int id)
-        {   
-            return View();
+        {
+            var cliente = _clienteApp.GetById(id);
+            var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+            return View(clienteViewModel);
         }
 
         // GET: Clientes/Create
+        [HttpPost]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Clientes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ClienteViewModel cliente)
         {
             if (ModelState.IsValid)
-            { 
+            {
                 var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
                 _clienteApp.Add(clienteDomain);
                 return RedirectToAction("Index");
@@ -61,64 +61,42 @@ namespace ProjetoDDD.MVC.Controllers
             return View(cliente);
         }
 
-        // POST: Clientes/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: Clientes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var cliente = _clienteApp.GetById(id);
+            var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+            return View(clienteViewModel);
         }
 
         // POST: Clientes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(ClienteViewModel cliente)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
+                _clienteApp.Update(clienteDomain);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(cliente);
         }
 
         // GET: Clientes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var cliente = _clienteApp.GetById(id);
+            var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+            return View(clienteViewModel);
         }
 
         // POST: Clientes/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, ClienteViewModel cliente)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var cli = _clienteApp.GetById(id);
+            _clienteApp.Remove(cli);
+            return View("Index");  
         }
     }
 }
